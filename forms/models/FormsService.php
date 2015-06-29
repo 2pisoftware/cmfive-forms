@@ -2,12 +2,12 @@
 class FormsService extends DbService {
 	
 	function getApplication($idOrSlug) {
-		if (!$idOrSlug) return null;
+		if (empty($idOrSlug)) return null;
 		
 		if (is_numeric($idOrSlug)) {
 			return $this->getObject("FormsApplication", $idOrSlug);
 		} else {
-			return $this->getObject("FormsApplication", array("slug",$idOrSlug));
+			return $this->getObject("FormsApplication", array("slug"=>$idOrSlug));
 		}
 	}
 	
